@@ -1,0 +1,25 @@
+{
+	"include": [
+		"$(MODDABLE)/examples/manifest_base.json",
+		"$(MODDABLE)/examples/manifest_net.json",
+		"$(MODDABLE)/modules/crypt/tls.json"
+	],
+	"creation": {
+		"static": 64000,
+	},
+	"modules": {
+		"*": [
+			"./main",
+			"$(MODULES)/network/http/*"
+		]
+	},
+	"preload": [
+		"main",
+		"http"
+	],
+	"resources":{
+		"*": [
+			"$(MODULES)/crypt/data/ca107",
+		]
+	},
+}
